@@ -16,9 +16,9 @@ class Bar
 end
 
 class Item
-
-  def initialize(item, price)
-    @item = item
+  attr_reader :name, :price
+  def initialize(name, price)
+    @name = name
     @price = price
   end
 
