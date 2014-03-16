@@ -28,6 +28,14 @@ class Bar
     end
   end
 
+  def happy_hour?
+    if (Time.now.hour >= 15 && Time.now.hour <16)
+      return true
+    else
+      return false
+    end
+  end
+
 
 end
 

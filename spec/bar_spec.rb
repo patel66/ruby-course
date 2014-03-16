@@ -59,14 +59,24 @@ describe Bar do
   # DO NOT CHANGE SPECS ABOVE THIS LINE #
 # # # # # # # # # # # # # # # # # # # # # #
 
-  describe '#happy_hour', :pending => true do
+  describe '#happy_hour' do
     it "knows when it is happy hour (3:00pm to 4:00pm)" do
       # TODO: CONTROL TIME
+
+       happy_time = DateTime.new(2014, 3, 10, 15, 30, 0, 0)
+
+      Time.stub(:now).and_return(happy_time)
+
+
       expect(@bar.happy_hour?).to eq(true)
     end
 
     it "is not happy hour otherwise" do
       # TODO: CONTROL TIME
+
+      not_happy_hour = DateTime.new(2014, 3, 10, 17, 45, 0, 0)
+      Time.stub(:now).and_return(not_happy_hour)
+
       expect(@bar.happy_hour?).to eq(false)
     end
   end
