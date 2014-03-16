@@ -18,6 +18,17 @@ class Bar
     @happy_discount || 0
   end
 
+  def happy_discount=(discount)
+    if (discount > 1)
+      @happy_discount = 1
+    elsif(discount < 0)
+      @happy_discount = 0
+    else
+      @happy_discount = discount
+    end
+  end
+
+
 end
 
 class Item

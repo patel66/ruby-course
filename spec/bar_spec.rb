@@ -41,26 +41,11 @@ describe Bar do
     expect(@bar.happy_discount).to eq 0
   end
 
-  xit "can set its happy hour discount" do
+  it "can set its happy hour discount" do
     @bar.happy_discount = 0.5
     expect(@bar.happy_discount).to eq 0.5
   end
-
-  xit "only returns a discount when it's happy hour" do
-    @bar.happy_discount = 0.5
-    # HINT: You need to write your own getter
-
-    # We are STUBBING `happy_hour?` to return a specified value.
-    # Because of this, you don't have to write a happy_hour? method (yet)
-    expect(@bar).to receive(:happy_hour?).and_return(false)
-    expect(@bar.happy_discount).to eq 0
-
-    expect(@bar).to receive(:happy_hour?).and_return(true)
-    expect(@bar.happy_discount).to eq 0.5
-  end
-
-  xit "constrains its happy hour discount to between zero and one" do
-    expect(@bar).to receive(:happy_hour?).and_return(true)
+  it "constrains its happy hour discount to between zero and one" do
 
     # HINT: You need to write your own setter
     @bar.happy_discount = 2
