@@ -63,7 +63,8 @@ describe Bar do
     it "knows when it is happy hour (3:00pm to 4:00pm)" do
       # TODO: CONTROL TIME
 
-       happy_time = DateTime.new(2014, 3, 10, 15, 30, 0, 0)
+
+       happy_time = Time.parse('3:30 pm')
 
       Time.stub(:now).and_return(happy_time)
 
@@ -74,7 +75,7 @@ describe Bar do
     it "is not happy hour otherwise" do
       # TODO: CONTROL TIME
 
-      not_happy_hour = DateTime.new(2014, 3, 10, 17, 45, 0, 0)
+      not_happy_hour = Time.parse('4:45 pm')
       Time.stub(:now).and_return(not_happy_hour)
 
       expect(@bar.happy_hour?).to eq(false)
@@ -83,6 +84,8 @@ describe Bar do
 
   context "During normal hours" do
     # TODO: WRITE TESTS TO ENSURE BAR KNOWS NOT TO DISCOUNT
+
+
   end
 
   context "During happy hours" do
