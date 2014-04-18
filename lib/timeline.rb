@@ -5,6 +5,9 @@ require 'active_record_tasks'
 require 'pry-debugger'
 
 module Timeline
+	def self.db
+		@__db_instance ||= Database::InMemory.new
+	end	
 end
 
 require 'timeline/entity.rb'

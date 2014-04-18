@@ -1,6 +1,8 @@
 require 'timeline'
 require 'timecop'
-require_relative 'database/shared_examples/db_spec.rb'
+require_relative 'database/shared_examples/db_examples.rb'
+
+
 
 RSpec.configure do |config|
   # Auto-generated
@@ -13,4 +15,10 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
+
+ config.before(:each) do
+    Timeline.instance_variable_set(:@__db_instance, nil)
+
+  	Timeline.db.clear_everything
+  end
 end
